@@ -2,7 +2,7 @@
     "name": "RageCage",
     "version": "1.0",
     "description": "Help control your emotions!",
-    "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>"],
+    "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>", "*://*/*"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
@@ -22,7 +22,10 @@
       ],
     "options_page": "options.html",
     "icons": {
-        "32": "images/get_started32.png"
+        "16": "images/ragecage16.png",
+        "32": "images/ragecage32.png",
+        "48": "images/ragecage48.png",
+        "128": "images/ragecage128.png"
     },
     "manifest_version": 2
 }

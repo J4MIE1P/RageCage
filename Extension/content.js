@@ -12,6 +12,9 @@ for (var i = 0; i < input_fields.length; i++){
            spaces = 0;
            let text = box.value;
            chrome.runtime.sendMessage({message: 'input', data: text}, function(response) {
+              if (response.value > .5){
+                    alert('Chill out');
+                }
            });
        }
     });
