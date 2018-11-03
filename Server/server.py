@@ -29,7 +29,7 @@ class Tone(Resource):
         text = input
         tone_analysis = tone_analyzer.tone({'text': text},'application/json').get_result()
         data = json.loads(json.dumps(tone_analysis, indent=2))
-        return is_angry(data), 200
+        return anger_score(data), 200
 
 
 api.add_resource(Tone, "/tone/<string:input>")
