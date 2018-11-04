@@ -12,7 +12,7 @@
 
   /* Some cosmetics */
   border-radius: 6px;
-  background-color: rgba(0,0,255);
+  background-color: rgba(255,0,0);
 }
 
 .js-modal-hidden {
@@ -49,8 +49,8 @@
   text-align: center;
 
   /* Cosmetics */
-  color: #0000FF;
+  color: #ff0000;
   border-width: 0;
   border-radius: 100%;
-  background-color: blue;
+  background-color: black;
 }
