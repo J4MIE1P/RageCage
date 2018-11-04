@@ -14,7 +14,7 @@ let createModal = (modalContent) => {
 
   // Add content and attributes to the modal
   modal.setAttribute("class", "js-modal");
-  modal.innerHTML = '<div class="js-modal-inner">' + modalContent + modalClose + '</div>';
+  modal.innerHTML = '<a href = "http://atlasofemotions.org"/><div class="js-modal-inner">' + modalContent + modalClose + '</div></a>';
   theBody.appendChild(modal);
   window.is_modal_open = true;
 
@@ -69,8 +69,15 @@ document.addEventListener("input", function(event) {
             let text = t.value.slice(+old_length);
             chrome.runtime.sendMessage({message: 'input', data: text}, function(response) {
                if (response.value > .5 && window.is_modal_open === false){
-                    createModal('We noticed you might be angry!')
-                    t.dataset.rageCageProcess = t.value.length;
+                  let notify = 'We noticed you might be angry. <br> Perhaps take a few deep breaths!';
+               	  if(response.value > .9){
+               		  notify = 'Angry? Try stepping away to cool off!';
+               	  }
+               	  else if(response.value > .75){
+               		  notify = 'Hey angry! Try taking a few deep breaths, walking away, and then returning.';
+               	  }
+                  createModal(notify);
+                  t.dataset.rageCageProcess = t.value.length;
                  }
             });
         }
@@ -85,7 +92,14 @@ document.addEventListener("input", function(event) {
            let text = t.innerText.slice(+old_length);
             chrome.runtime.sendMessage({message: 'input', data: text}, function(response) {
                if (response.value > .5 && window.is_modal_open === false){
-                    createModal('We noticed you might be angry!')
+                    let notify = 'We noticed you might be angry. <br> Perhaps take a few deep breaths!';
+	               	  if(response.value > .9){
+	               		  notify = 'Angry? Try stepping away to cool off!';
+	               	  }
+	               	  else if(response.value > .75){
+	               		  notify = 'Hey angry! Try taking a few deep breaths, walking away, and then returning.';
+	               	  }
+                		createModal(notify);
                     t.dataset.rageCageProcess = t.innerText.length;
                  }
             });
