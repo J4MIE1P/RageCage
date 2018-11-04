@@ -13,7 +13,7 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.runtime.onMessage.addListener(
     function(request, sender, senderResponse){
         if(request.message === 'input'){
-            url = "http://127.0.0.1:5000/tone/" + request.data;
+            url = "http://127.0.0.1:5000/tone/" + request.data; //ex. http://127.0.0.1:5000/i hate you
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == XMLHttpRequest.DONE){
@@ -28,9 +28,3 @@ chrome.runtime.onMessage.addListener(
         }
     }
 )
-/*
-function getScore(text){
-    console.log(text);
-    *do HTTP stuff*
-}
-  */
