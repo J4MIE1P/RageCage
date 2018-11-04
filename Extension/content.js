@@ -70,7 +70,7 @@ document.addEventListener("input", function(event) {
             chrome.runtime.sendMessage({message: 'input', data: text}, function(response) {
                if (response.value > .5 && window.is_modal_open === false){
                     createModal('We noticed you might be angry!')
-                    box.dataset.rageCageProcess = box.value.length;
+                    t.dataset.rageCageProcess = t.value.length;
                  }
             });
         }
@@ -81,12 +81,12 @@ document.addEventListener("input", function(event) {
         }
         if(spaces >= 2 && checkText){
            spaces = 0;
-           let old_length = box.dataset.rageCageProcess || 0;
+           let old_length = t.dataset.rageCageProcess || 0;
            let text = t.innerText.slice(+old_length);
             chrome.runtime.sendMessage({message: 'input', data: text}, function(response) {
                if (response.value > .5 && window.is_modal_open === false){
                     createModal('We noticed you might be angry!')
-                    box.dataset.rageCageProcess = box.value.length;
+                    t.dataset.rageCageProcess = t.innerText.length;
                  }
             });
         }
