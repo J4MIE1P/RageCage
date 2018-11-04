@@ -31,6 +31,8 @@ let createModal = (modalContent) => {
   }
 }
 
+
+
 var input_fields = document.querySelectorAll("input");
 var spaces = 0;
 for (var i = 0; i < input_fields.length; i++){
@@ -39,14 +41,13 @@ for (var i = 0; i < input_fields.length; i++){
     let c = event.data;
        if(c !== null && c===' '){
             spaces+=1;
-            createModal('Hello modal');
        }
        if(spaces >= 2){
            spaces = 0;
            let text = box.value;
            chrome.runtime.sendMessage({message: 'input', data: text}, function(response) {
               if (response.value > .5){
-                    alert('Chill out');
+             createModal('Hello modal');
                 }
            });
        }
