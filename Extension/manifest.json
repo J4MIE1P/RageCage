@@ -1,7 +1,7 @@
 {
     "name": "RageCage",
     "version": "1.0",
-    "description": "Help control your emotions!",
+    "description": "Soothe your emotion, cage your rage",
     "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>", "*://*/*"],
     "background": {
         "scripts": ["background.js"],
